@@ -1,0 +1,12 @@
+F:\LF 6 Datenbanken und programmieren\PROJEKT\RPS\RPS\bin\Debug\RPS.exe.config
+F:\LF 6 Datenbanken und programmieren\PROJEKT\RPS\RPS\bin\Debug\RPS.exe
+F:\LF 6 Datenbanken und programmieren\PROJEKT\RPS\RPS\bin\Debug\RPS.pdb
+F:\LF 6 Datenbanken und programmieren\PROJEKT\RPS\RPS\obj\Debug\RPS.csprojResolveAssemblyReference.cache
+F:\LF 6 Datenbanken und programmieren\PROJEKT\RPS\RPS\obj\Debug\RPS.exe
+F:\LF 6 Datenbanken und programmieren\PROJEKT\RPS\RPS\obj\Debug\RPS.pdb
+F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\bin\Debug\RPS.exe.config
+F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\obj\Debug\RPS.exe
+F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\obj\Debug\RPS.pdb
+F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\bin\Debug\RPS.exe
+F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\bin\Debug\RPS.pdb
+F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\obj\Debug\RPS.csprojResolveAssemblyReference.cache
