@@ -18,6 +18,7 @@ namespace RPS
         private Spielzüge Gegner;
         private Random random = new Random();
         private int CountMehrfacherSpielzug = 0;
+        private int CountExit = 0;
 
         public Game() //Konstruktor
         {
@@ -83,9 +84,15 @@ namespace RPS
 
                 Console.WriteLine("Der aktuelle Spielstand: \nComputer: " + computer.GETspielstand() + "\n" + spieler.GETname() + ": " + spieler.GETspielstand() + "\n");
 
+                CountExit++;
 
-                Console.WriteLine("Geben Sie zum verlassen des Spiels das Schlüsselwort <exit> ein.");
-                if (e.EingabeString() == "exit") running = false;
+                if (CountExit >= 8)
+                {
+                    Console.WriteLine("Geben Sie zum verlassen des Spiels das Schlüsselwort <exit> ein.");
+                    if (e.EingabeString() == "exit") running = false;
+                    CountExit = 0;
+                }
+
             
             } while (running);
 
@@ -114,10 +121,10 @@ namespace RPS
             {
                 CountMehrfacherSpielzug++;
 
-                if (CountMehrfacherSpielzug >= 2)
+                if (CountMehrfacherSpielzug >= 3)
                 {
 
-                    Console.WriteLine("Langweilig... Der Computer hat deine Strategie entlarvt.");
+                    Console.WriteLine("\nLangweilig... \nDer Computer hat deine Strategie entlarvt.\n");
 
                     if (Benutzer == Spielzüge.Schere) Gegner = Spielzüge.Stein;
                     if (Benutzer == Spielzüge.Stein) Gegner = Spielzüge.Papier;
