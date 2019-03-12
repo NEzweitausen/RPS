@@ -16,8 +16,8 @@ namespace RPS
         private Spielzüge Benutzer;
         private Spielzüge LastBenutzer;
         private Spielzüge Gegner;
-        private Spielzüge LastGegner;
         private Random random = new Random();
+        private int CountMehrfacherSpielzug = 0;
 
         public Game() //Konstruktor
         {
@@ -109,14 +109,31 @@ namespace RPS
             Benutzer = Übersetzung(ZugBenutzer);
             Gegner = Übersetzung(ZugGegner);
 
+
+            if (LastBenutzer == Benutzer)
+            {
+                CountMehrfacherSpielzug++;
+
+                if (CountMehrfacherSpielzug >= 2)
+                {
+
+                    Console.WriteLine("Langweilig... Der Computer hat deine Strategie entlarvt.");
+
+                    if (Benutzer == Spielzüge.Schere) Gegner = Spielzüge.Stein;
+                    if (Benutzer == Spielzüge.Stein) Gegner = Spielzüge.Papier;
+                    if (Benutzer == Spielzüge.Papier) Gegner = Spielzüge.Schere;
+                }
+
+                
+            }
+            else
+            {
+                CountMehrfacherSpielzug = 0;
+            }
+
             if (Benutzer == Gegner)
             {
                 return false;
-            }
-
-            if (LastBenutzer == Benutzer || LastGegner == Gegner)
-            {
-                //TODO intelligenter Modus
             }
 
             if (Benutzer == Spielzüge.Schere && Gegner == Spielzüge.Stein) computer.SETspielstand(computer.GETspielstand() + 1);
@@ -126,8 +143,9 @@ namespace RPS
             if (Benutzer == Spielzüge.Papier && Gegner == Spielzüge.Schere) computer.SETspielstand(computer.GETspielstand() + 1);
             if (Benutzer == Spielzüge.Papier && Gegner == Spielzüge.Stein) spieler.SETspielstand(spieler.GETspielstand() + 1);
 
+
+            
             LastBenutzer = Benutzer;
-            LastGegner = Gegner;
 
             return true;
 
