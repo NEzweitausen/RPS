@@ -15,6 +15,8 @@ namespace RPS
         private string Servername;
         private int ServerPort = 4712;
         private bool running = true;
+        private ConsoleColor SchriftSpieler1 = ConsoleColor.Magenta;
+        private ConsoleColor SchriftSpieler2 = ConsoleColor.Green;
 
         private Eingabe e = new Eingabe();
 
@@ -57,10 +59,40 @@ namespace RPS
 
             while (running == true)
             {
-                ausgabeTCP = reader.ReadLine();
+                
+                //Kommandos analysieren
 
                 Console.WriteLine(ausgabeTCP);
                 if (ausgabeTCP == "EXIT") running = false;
+                
+                if (ausgabeTCP == "1PAPIER")
+                {
+                    ASCIIart grafikSpieler1 = new ASCIIart(Spielzüge.Papier,SchriftSpieler1);
+                }
+                else if (ausgabeTCP == "1STEIN")
+                {
+                    ASCIIart grafikSpieler1 = new ASCIIart(Spielzüge.Stein,SchriftSpieler1);
+                }
+                else if (ausgabeTCP == "1SCHERE")
+                {
+                    ASCIIart grafikSpieler1 = new ASCIIart(Spielzüge.Schere,SchriftSpieler1);
+                }
+                else if (ausgabeTCP == "2PAPIER")
+                {
+                    ASCIIart grafikSpieler2 = new ASCIIart(Spielzüge.Papier,SchriftSpieler2);
+                }
+                else if (ausgabeTCP == "2STEIN")
+                {
+                    ASCIIart grafikSpieler2 = new ASCIIart(Spielzüge.Stein,SchriftSpieler2);
+                }
+                else if (ausgabeTCP == "2SCHERE")
+                {
+                    ASCIIart grafikSpieler2 = new ASCIIart(Spielzüge.Schere,SchriftSpieler2);
+                }
+                else
+                {
+                    ausgabeTCP = reader.ReadLine();
+                }
 
                 eingabeTCP = Console.ReadLine();
                 writer.WriteLine(eingabeTCP);

@@ -33,15 +33,15 @@ namespace RPS
 
             if (spielzug == Spielzüge.Papier)
             {
-                output = File.ReadAllText(@"F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\PAPIER.txt"); //TODO: Variabel mappen
+                output = File.ReadAllText(@"PAPIER.txt"); 
             }
             else if (spielzug == Spielzüge.Schere)
             {
-                output = File.ReadAllText(@"F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\SCHERE.txt");
+                output = File.ReadAllText(@"SCHERE.txt");
             }
             else
             {
-                output = File.ReadAllText(@"F:\LF 6 Datenbanken und programmieren\Agiles Projekt LF6\RPS\RPS\STEIN.txt");
+                output = File.ReadAllText(@"STEIN.txt");
             }
 
             if (farbeISSET == true) Console.ForegroundColor = farbe;
