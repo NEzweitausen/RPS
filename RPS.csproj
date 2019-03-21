@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ASCIIart.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Eingabe.cs" />
     <Compile Include="Game.cs" />

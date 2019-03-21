@@ -14,7 +14,7 @@ namespace RPS
         private string ausgabeTCP;
         private string Servername;
         private int ServerPort = 4712;
-        private bool running;
+        private bool running = true;
 
         private Eingabe e = new Eingabe();
 
@@ -57,13 +57,13 @@ namespace RPS
 
             while (running == true)
             {
-                writer.WriteLine(eingabeTCP);
-                Console.WriteLine("Anfrage gesendet.");
-
                 ausgabeTCP = reader.ReadLine();
 
                 Console.WriteLine(ausgabeTCP);
                 if (ausgabeTCP == "EXIT") running = false;
+
+                eingabeTCP = Console.ReadLine();
+                writer.WriteLine(eingabeTCP);
             }
 
             Console.ReadKey();

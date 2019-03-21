@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RPS
@@ -19,11 +20,12 @@ namespace RPS
         private Random random = new Random();
         private int CountMehrfacherSpielzug = 0;
         private int CountExit = 0;
+        private Eingabe e = new Eingabe();
 
         public Game() //Konstruktor
         {
-
-            spieler.SETname("test");
+            Console.WriteLine("Geben Sie sich einen Namen:");
+            spieler.SETname(e.EingabeString());
             computer.SETname("computer");
 
             userinterface();
@@ -40,7 +42,7 @@ namespace RPS
 
             do
             {
-                Console.WriteLine("Sie haben folgende Optionen: \n1 - Schere \n2 - Stein \n3 - Papier");
+                Console.WriteLine("\n" + spieler.GETname() + ", Sie haben folgende Optionen: \n1 - Schere \n2 - Stein \n3 - Papier");
 
                 Console.WriteLine("Geben Sie ihren Zug ein");
                 
@@ -68,13 +70,13 @@ namespace RPS
 
                 if (entschieden == true)
                 {
-                    if (Gegner == Spielzüge.Papier) Console.WriteLine("Der Gegner hat Papier genommen.");
+                    /*if (Gegner == Spielzüge.Papier) Console.WriteLine("Der Gegner hat Papier genommen.");
                     if (Gegner == Spielzüge.Stein) Console.WriteLine("Der Gegner hat sich für Stein entschieden.");
                     if (Gegner == Spielzüge.Schere) Console.WriteLine("Der Gegner hat Schere gewählt. \n");
 
                     if (Benutzer == Spielzüge.Papier) Console.WriteLine("Ihr Zug: Papier");
                     if (Benutzer == Spielzüge.Stein) Console.WriteLine("Ihr Zug: Stein");
-                    if (Benutzer == Spielzüge.Schere) Console.WriteLine("Ihr Zug: Schere \n");
+                    if (Benutzer == Spielzüge.Schere) Console.WriteLine("Ihr Zug: Schere \n");*/
 
                 }
                 else
@@ -82,7 +84,13 @@ namespace RPS
                     Console.WriteLine("Unentschieden!");
                 }
 
-                Console.WriteLine("Der aktuelle Spielstand: \nComputer: " + computer.GETspielstand() + "\n" + spieler.GETname() + ": " + spieler.GETspielstand() + "\n");
+                ASCIIart grafikGegner = new ASCIIart(Gegner, ConsoleColor.Red);
+                Console.WriteLine("\n");
+                ASCIIart grafikSpieler = new ASCIIart(Benutzer, ConsoleColor.Cyan);
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\nDer aktuelle Spielstand: \nComputer(rot): " + computer.GETspielstand() + "\n" + spieler.GETname() + "(blau): " + spieler.GETspielstand() + "\n");
+                Console.ResetColor();
 
                 CountExit++;
 
@@ -123,8 +131,9 @@ namespace RPS
 
                 if (CountMehrfacherSpielzug >= 3)
                 {
-
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nLangweilig... \nDer Computer hat deine Strategie entlarvt.\n");
+                    Console.ResetColor();
 
                     if (Benutzer == Spielzüge.Schere) Gegner = Spielzüge.Stein;
                     if (Benutzer == Spielzüge.Stein) Gegner = Spielzüge.Papier;
